@@ -1,7 +1,7 @@
 /**
  * Module for obtaining descriptive information about a set of data.
  *
- * @author TODO: Write your name here.
+ * @author Adda Skogberg
  * @version 1.1.0
  */
 
@@ -22,6 +22,64 @@ function descriptiveStatistics (numbers) {
 }
 
 // TODO: Write your code here.
+
+
+/**
+ * 
+ * 
+ */
+function maximum (){
+
+}
+
+/**
+ * 
+ * 
+ */
+
+function mean (){
+
+}
+
+/**
+ * 
+ * 
+ */
+function median (){
+
+}
+
+/**
+ * 
+ * 
+ */
+function minimum (){
+
+}
+
+/**
+ * 
+ * 
+ */
+function mode (){
+
+}
+
+/**
+ * 
+ * 
+ */
+function range (){
+
+}
+
+/**
+ * 
+ * 
+ */
+function standardDeviation (){
+
+}
 
 // Exports
 exports.descriptiveStatistics = descriptiveStatistics
