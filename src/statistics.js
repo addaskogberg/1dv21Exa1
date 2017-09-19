@@ -111,7 +111,7 @@ function standardDeviation (){
 
 // Exports
 
-exports.descriptiveStatistics = descriptiveStatistics
+exports.descriptiveStatistics = undefined
 exports.maximum = undefined
 exports.mean = undefined
 exports.median = undefined
