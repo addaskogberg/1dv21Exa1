@@ -56,8 +56,13 @@ function maximum (numbers){
  * 
  */
 
-function mean (){
-
+function mean (numbers){
+    var sum = 0;
+    for(var i = 0; i < numbers.length; i++) {
+        sum += numbers[i];
+    }
+    var mean = sum / numbers.length;
+    return mean
 }
 
 /**
@@ -111,7 +116,7 @@ function standardDeviation (){
 
 // Exports
 
-exports.descriptiveStatistics = undefined
+exports.descriptiveStatistics = descriptiveStatistics
 exports.maximum = undefined
 exports.mean = undefined
 exports.median = undefined
