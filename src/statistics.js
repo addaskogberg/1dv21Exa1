@@ -112,10 +112,10 @@ function standardDeviation (){
 // Exports
 
 exports.descriptiveStatistics = descriptiveStatistics
-exports.maximum = maximum
-exports.mean = mean
-exports.median = median
-exports.minimum = minimum
-exports.mode = mode
-exports.range = range
-exports.standardDeviation = standardDeviation
+exports.maximum = undefined
+exports.mean = undefined
+exports.median = undefined
+exports.minimum = undefined
+exports.mode = undefined
+exports.range = undefined
+exports.standardDeviation = undefined
