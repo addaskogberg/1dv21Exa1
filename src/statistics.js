@@ -18,7 +18,10 @@
  * @returns {{maximum: number, mean: number, median: number, minimum: number, mode: number[], range: number, standardDeviation: number}}
  */
 function descriptiveStatistics (numbers) {
-    // TODO: Write your code here.
+    let result=[]
+    result[0] = "maximum: " + maximum(numbers)
+    result[1] = "mean: " + mean(numbers)
+    return result
 }
 
 // TODO: Write your code here.
@@ -28,7 +31,17 @@ function descriptiveStatistics (numbers) {
  * 
  * 
  */
-function maximum (){
+function maximum (numbers){
+    var largest = numbers[0]
+    
+    for (var i = 0; i < numbers.length; i++) {
+        if (largest < numbers[i] ) {
+            largest = numbers[i]
+        }
+    }
+    
+   return largest
+   
 
 }
 
@@ -82,11 +95,12 @@ function standardDeviation (){
 }
 
 // Exports
+
 exports.descriptiveStatistics = descriptiveStatistics
-exports.maximum = undefined
-exports.mean = undefined
-exports.median = undefined
-exports.minimum = undefined
-exports.mode = undefined
-exports.range = undefined
-exports.standardDeviation = undefined
+exports.maximum = maximum
+exports.mean = mean
+exports.median = median
+exports.minimum = minimum
+exports.mode = mode
+exports.range = range
+exports.standardDeviation = standardDeviation
