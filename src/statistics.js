@@ -70,12 +70,17 @@ function mean (numbers){
  * 
  */
 function median (numbers){
+        var median = 0,
+            numbersLength = numbers.length;
+        numbers.sort();
+        if (numbersLength % 2 === 0) { 
+            median = (numbers[numbersLength / 2 - 1] + numbers[numbersLength / 2]) / 2;
+        } else { 
+            median = numbers[(numbersLength - 1) / 2];
+        }
+        return median;
+      }
     
-    numbers.sort();
-    console.log(numbers)
-
-}
-
 /**
  * 
  * 
