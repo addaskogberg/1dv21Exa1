@@ -69,7 +69,10 @@ function mean (numbers){
  * 
  * 
  */
-function median (){
+function median (numbers){
+    
+    numbers.sort();
+    console.log(numbers)
 
 }
 
