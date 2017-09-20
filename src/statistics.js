@@ -99,10 +99,12 @@ function minimum (numbers){
 }
 
 /**
- * 
+ * The mode is the number that is repeated more often than any other
  * 
  */
-function mode (){
+function mode (numbers){
+    var mode = numbers[0]
+
 
 }
 
