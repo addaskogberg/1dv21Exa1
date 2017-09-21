@@ -112,8 +112,11 @@ function mode (numbers){
  * 
  * 
  */
-function range (){
-
+function range (numbers){
+    let min = minimum(numbers)
+    let max = maximum(numbers)
+    
+    return  max - min 
 }
 
 /**
