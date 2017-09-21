@@ -104,7 +104,7 @@ function minimum (numbers){
  */
 function mode (numbers){
     var mode = numbers[0]
-
+    
 
 }
 
