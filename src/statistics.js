@@ -123,15 +123,13 @@ function range (){
 function standardDeviation (numbers){
 
     let average = mean(numbers)
-
-    let numerator = 0;
-    for(var i = 0; i < numbers.length; i++) {
-        numerator += (numbers[i] - average) * (numbers[i] - average)
+    let numerator = 0
+    for(var i = 0; i < numbers.length; i++) { //loopar igenom arrayen
+        numerator += (numbers[i] - average) * (numbers[i] - average) // beräknar varje index minus medel i kvadrat
     }
-    let standarDev = Math.sqrt(numerator / (numbers.length-1))
+    let NumDivDenom = numerator / (numbers.length-1) // delar nämnare med medel minus ett
 
-    console.log(standardDev)
-    
+    return  Math.sqrt(NumDivDenom) // roten ur....
 }    
 // Exports
 
