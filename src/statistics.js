@@ -123,13 +123,15 @@ function range (){
 function standardDeviation (numbers){
 
     let average = mean(numbers)
-    console.log(average)
 
     let numerator = 0;
     for(var i = 0; i < numbers.length; i++) {
         numerator += (numbers[i] - average) * (numbers[i] - average)
     }
-    console.log(numerator)
+    let standarDev = Math.sqrt(numerator / (numbers.length-1))
+
+    console.log(standardDev)
+    
 }    
 // Exports
 
