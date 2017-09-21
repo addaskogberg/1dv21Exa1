@@ -71,10 +71,10 @@ function mean (numbers){
  */
 function median (numbers){
         var median = 0,
-            numbersLength = numbers.length;
+            numbersLength = numbers.length; //kollar längden på numbers
         numbers.sort();
-        if (numbersLength % 2 === 0) { 
-            median = (numbers[numbersLength / 2 - 1] + numbers[numbersLength / 2]) / 2;
+        if (numbersLength % 2 === 0) { // är talet udda eller jämt
+            median = (numbers[numbersLength / 2 - 1] + numbers[numbersLength / 2]) / 2; //-1 för array positionering mot numbers.length
         } else { 
             median = numbers[(numbersLength - 1) / 2];
         }
