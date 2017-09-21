@@ -120,17 +120,24 @@ function range (){
  * 
  * 
  */
-function standardDeviation (){
+function standardDeviation (numbers){
 
-}
+    let average = mean(numbers)
+    console.log(average)
 
+    let numerator = 0;
+    for(var i = 0; i < numbers.length; i++) {
+        numerator += (numbers[i] - average) * (numbers[i] - average)
+    }
+    console.log(numerator)
+}    
 // Exports
 
 exports.descriptiveStatistics = descriptiveStatistics
-exports.maximum = undefined
-exports.mean = undefined
-exports.median = undefined
-exports.minimum = undefined
-exports.mode = undefined
-exports.range = undefined
-exports.standardDeviation = undefined
+exports.maximum = maximum
+exports.mean = mean
+exports.median = median
+exports.minimum = minimum
+exports.mode = mode
+exports.range = range
+exports.standardDeviation = standardDeviation
