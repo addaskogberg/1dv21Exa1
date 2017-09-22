@@ -100,11 +100,18 @@ function minimum (numbers){
 
 /**
  * The mode is the number that is repeated more often than any other
- * 
+ *  
  */
 function mode (numbers){
-    var mode = numbers[0]
-    
+    let modeArray = numbers[0]
+
+    for (var i =0; i <modeArray.length; i++){
+
+    }
+        for (var j = 0; j <modeArray.length; j++){
+            if (i !== j && modeArray[i]=== modeArray[j])
+            console.log(mode)
+        }
 
 }
 
