@@ -30,16 +30,22 @@ function descriptiveStatistics (numbers) {
 
 }
 
-// TODO: Write your code here.
-
-
 /**
- * 
- * 
+ * Returns the descriptive information (maximum, mean, median, minimum,
+ * mode, range and standard deviation) from a set of numbers.
+ *
+ * @param {number[]} numbers 
+ * @throws {TypeError} The argument must be an array.
+ * @throws {Error} The argument can not be an empty array.
+ * @throws {TypeError} The argument must be an array containing just numbers.
+ * @returns {{maximum: number}}
  */
 function maximum (numbers){
     var largest = numbers[0]
-    
+    numbers = "hej"
+    if(!Array.isArray(numbers)){
+        throw new TypeError ("numbers doesn't refer to an array")
+    }
     for (var i = 0; i < numbers.length; i++) {
         if (largest < numbers[i] ) {
             largest = numbers[i]
