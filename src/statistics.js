@@ -42,10 +42,13 @@ function descriptiveStatistics (numbers) {
  */
 function maximum (numbers){
     var largest = numbers[0]
-    numbers = "hej"
     if(!Array.isArray(numbers)){
         throw new TypeError ("numbers doesn't refer to an array")
     }
+    if(numbers !== numbers.length > 0){   
+    throw new Error ("array is empty")
+    }
+    
     for (var i = 0; i < numbers.length; i++) {
         if (largest < numbers[i] ) {
             largest = numbers[i]
