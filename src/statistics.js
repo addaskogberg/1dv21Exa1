@@ -102,17 +102,27 @@ function minimum (numbers){
  * The mode is the number that is repeated more often than any other
  *  
  */
-function mode (numbers){
-    let modeArray = numbers[0]
+    function mode(numbers) {
+        let mostFrequentNr 
+        let count = []
+        let number
+        let maxCount = 0
+     
+        for (var i = 0; i < numbers.length; i ++) {
+            number = numbers[i];
+           if (isNaN(count[number])){
+                count[number] = 1
+           }
+           else{
+               count[number]++
+           }
 
-    for (var i =0; i <modeArray.length; i++){
-
-    }
-        for (var j = 0; j <modeArray.length; j++){
-            if (i !== j && modeArray[i]=== modeArray[j])
-            console.log(mode)
+            if (count[number] > maxCount) {
+                maxCount = count[number]
+               mostFrequentNr = number
+            }
         }
-
+        return mostFrequentNr 
 }
 
 /**
