@@ -45,10 +45,24 @@ function maximum (numbers){
     if(!Array.isArray(numbers)){
         throw new TypeError ("numbers doesn't refer to an array")
     }
+
     if(numbers.length === 0){   
         throw new Error ("array is empty")
     }
-    
+
+    let isNumber = true
+
+    for(let i = 0; i < numbers.length; i++){
+        if(isNaN(numbers[i])){
+            isNumber = false
+            break
+        }
+    }
+
+    if(!isNumber){
+        throw new Error ("array element is Not A Number") 
+    }
+
 
     for (var i = 0; i < numbers.length; i++) {
         if (largest < numbers[i] ) {
