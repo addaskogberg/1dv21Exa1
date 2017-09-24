@@ -38,6 +38,7 @@ function descriptiveStatistics (numbers) {
     if(!isNumber){
         throw new Error ("array element is Not A Number") 
     }
+
     let result=[]
     result[0] = "maximum: " + maximum(numbers)
     result[1] = "mean: : " + mean(numbers)
@@ -51,63 +52,65 @@ function descriptiveStatistics (numbers) {
 }
 
 /**
- * Identifies the largest number in the array by looping through every element of the array and comparing starting att index 0.
+ * Identifies the largest number in the array by looping through every element of the array and comparing, starting att index 0.
  *
- * @param {number[]} numbers 
- * @returns {{maximum: largest}}
+ * @param {number[]} numbers // input an array of numbers
+ * @returns {{maximum: number}} // returns type number
  */
 function maximum (numbers){
     let largest = numbers[0]
 
-    for (var i = 0; i < numbers.length; i++) {
-        if (largest < numbers[i] ) { 
-            largest = numbers[i]    
+    for (var i = 0; i < numbers.length; i++) { //loops through the array
+        if (largest < numbers[i] ) { //compares the number in the index with largest 
+            largest = numbers[i]    // if largest is smaler then numbers, numbers equals largest
         }
     }
     return largest   
 }
 
 /**
- * 
- * @param {number[]} numbers 
- * @returns {{maximum: }} * 
+ * Calculates the average of the numbers in an array.
+ * @param {number[]} numbers // input an array of numbers
+ * @returns {{mean: number}} // returns type number
  */
 
 function mean (numbers){
-    var sum = 0;
-    for(var i = 0; i < numbers.length; i++) {
-        sum += numbers[i];
+    let sum = 0;
+    for(var i = 0; i < numbers.length; i++) {// loops through the array
+        sum += numbers[i]; // adds up all the numbers in the array
     }
-    var average = sum / numbers.length;
+    let average = sum / numbers.length; // divides the sum of the array with the number of indexes
     return average
 }
 
 /**
- * 
- * 
+ * find the middle number in an array
+ * @param {number[]} numbers // input an array of numbers
+ * @returns {{median: number}} // returns type number
  */
 function median (numbers){
-        var median = 0,
-            numbersLength = numbers.length; //kollar längden på numbers
-        numbers.sort();
-        if (numbersLength % 2 === 0) { // är talet udda eller jämt
-            median = (numbers[numbersLength / 2 - 1] + numbers[numbersLength / 2]) / 2; //-1 för array positionering mot numbers.length
+        let median = 0,
+            numbersLength = numbers.length; //finds the length of the array
+        numbers.sort();                     //sorting the number
+        if (numbersLength % 2 === 0) { // is the number even
+            median = (numbers[numbersLength / 2 - 1] + numbers[numbersLength / 2]) / 2; //finding the middle and if the number of arrays is even add the 2 middle numbers and divide by 2. -1 for array positioning 
         } else { 
-            median = numbers[(numbersLength - 1) / 2];
+            median = numbers[(numbersLength - 1) / 2]; // finding the element in the middle by dividing the array. -1 for posisioning in the array
         }
         return median;
       }
     
 /**
- * 
- * 
+ * finding the smallest number in an array
+ * @param {number[]} numbers // input an array of numbers
+ * @returns {{minimum: number}} // returns type number
  */
 function minimum (numbers){
-    var smallest = numbers[0]
+    let smallest = numbers[0]
     
     for (var i = 0; i < numbers.length; i++) {
-        if (smallest > numbers[i] ) {
-            smallest = numbers[i]
+        if (smallest > numbers[i] ) {  //compares the number in the index with smallest
+            smallest = numbers[i]      //  smallest equals numbers
         }
     }
     
@@ -116,8 +119,9 @@ function minimum (numbers){
 }
 
 /**
- * The mode is the number that is repeated more often than any other
- *  
+ * find the number that is repeated more often than any other
+ * @param {number[]} numbers // input an array of numbers
+ * @returns {{mode: number}} // returns type number 
  */
     function mode(numbers) {
         let mostFrequentNr 
@@ -127,7 +131,7 @@ function minimum (numbers){
      
         for (var i = 0; i < numbers.length; i ++) {
             number = numbers[i];
-           if (isNaN(count[number])){
+           if (isNaN(count[number])){ // initiaties the count 1 at index 0
                 count[number] = 1
            }
            else{
@@ -144,7 +148,8 @@ function minimum (numbers){
 
 /**
  * 
- * 
+ * @param {number[]} numbers // input an array of numbers
+ * @returns {{range: number}} // returns type number 
  */
 function range (numbers){
     let min = minimum(numbers)
@@ -155,7 +160,8 @@ function range (numbers){
 
 /**
  * 
- * 
+ * @param {number[]} numbers // input an array of numbers
+ * @returns {{standardDeviation: number}} // returns type number 
  */
 function standardDeviation (numbers){
 
