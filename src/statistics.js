@@ -130,15 +130,15 @@ function minimum (numbers){
         let maxCount = 0
      
         for (var i = 0; i < numbers.length; i ++) {
-            number = numbers[i];
+           let number = numbers[i];
            if (isNaN(count[number])){ // initiaties the count 1 at index 0
                 count[number] = 1
            }
            else{
-               count[number]++
+               count[number]++ // counting after initiation
            }
 
-            if (count[number] > maxCount) {
+            if (count[number] > maxCount) { //
                 maxCount = count[number]
                mostFrequentNr = number
             }
@@ -147,19 +147,19 @@ function minimum (numbers){
 }
 
 /**
- * 
+ * the difference between the largest and smallest number in the array
  * @param {number[]} numbers // input an array of numbers
  * @returns {{range: number}} // returns type number 
  */
 function range (numbers){
-    let min = minimum(numbers)
-    let max = maximum(numbers)
+    let min = minimum(numbers) // uses the function minimum to get the smallest number
+    let max = maximum(numbers) // uses the function maximum to get the largest number
     
-    return  max - min 
+    return  max - min  // calculates the range
 }
 
 /**
- * 
+ * gives the spread of the numbers in the array from the average number
  * @param {number[]} numbers // input an array of numbers
  * @returns {{standardDeviation: number}} // returns type number 
  */
@@ -167,12 +167,12 @@ function standardDeviation (numbers){
 
     let average = mean(numbers)
     let numerator = 0
-    for(var i = 0; i < numbers.length; i++) { //loopar igenom arrayen
-        numerator += (numbers[i] - average) * (numbers[i] - average) // beräknar varje index minus medel i kvadrat
+    for(var i = 0; i < numbers.length; i++) { //loops through the array
+        numerator += (numbers[i] - average) * (numbers[i] - average) // the sum minus the average squared in the array
     }
-    let NumDivDenom = numerator / (numbers.length-1) // delar nämnare med medel minus ett
+    let NumDivDenom = numerator / (numbers.length-1) // divides the numerator with the numbera of elements minus 1
 
-    return  Math.sqrt(NumDivDenom) // roten ur....
+    return  Math.sqrt(NumDivDenom) // square root
 }    
 // Exports
 
