@@ -57,7 +57,7 @@ function descriptiveStatistics (numbers) {
  * @returns {{maximum: largest}}
  */
 function maximum (numbers){
-    var largest = numbers[0]
+    let largest = numbers[0]
 
     for (var i = 0; i < numbers.length; i++) {
         if (largest < numbers[i] ) { 
@@ -69,7 +69,8 @@ function maximum (numbers){
 
 /**
  * 
- * 
+ * @param {number[]} numbers 
+ * @returns {{maximum: }} * 
  */
 
 function mean (numbers){
@@ -77,8 +78,8 @@ function mean (numbers){
     for(var i = 0; i < numbers.length; i++) {
         sum += numbers[i];
     }
-    var mean = sum / numbers.length;
-    return mean
+    var average = sum / numbers.length;
+    return average
 }
 
 /**
