@@ -18,6 +18,26 @@
  * @returns {{maximum: number, mean: number, median: number, minimum: number, mode: number[], range: number, standardDeviation: number}}
  */
 function descriptiveStatistics (numbers) {
+    if(!Array.isArray(numbers)){
+        throw new TypeError ("numbers doesn't refer to an array")
+    }
+
+    if(numbers.length === 0){   
+        throw new Error ("array is empty")
+    }
+
+    let isNumber = true
+
+    for(let i = 0; i < numbers.length; i++){
+        if(isNaN(numbers[i])){
+            isNumber = false
+            break
+        }
+    }
+
+    if(!isNumber){
+        throw new Error ("array element is Not A Number") 
+    }
     let result=[]
     result[0] = "maximum: " + maximum(numbers)
     result[1] = "mean: : " + mean(numbers)
@@ -42,26 +62,7 @@ function descriptiveStatistics (numbers) {
  */
 function maximum (numbers){
     var largest = numbers[0]
-    if(!Array.isArray(numbers)){
-        throw new TypeError ("numbers doesn't refer to an array")
-    }
-
-    if(numbers.length === 0){   
-        throw new Error ("array is empty")
-    }
-
-    let isNumber = true
-
-    for(let i = 0; i < numbers.length; i++){
-        if(isNaN(numbers[i])){
-            isNumber = false
-            break
-        }
-    }
-
-    if(!isNumber){
-        throw new Error ("array element is Not A Number") 
-    }
+   
 
 
     for (var i = 0; i < numbers.length; i++) {
