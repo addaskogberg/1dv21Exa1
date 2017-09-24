@@ -18,6 +18,7 @@
  * @returns {{maximum: number, mean: number, median: number, minimum: number, mode: number[], range: number, standardDeviation: number}}
  */
 function descriptiveStatistics (numbers) {
+    // exceptions thrown if there is no array
     if(!Array.isArray(numbers)){
         throw new TypeError ("numbers doesn't refer to an array")
     }
