@@ -51,29 +51,20 @@ function descriptiveStatistics (numbers) {
 }
 
 /**
- * Returns the descriptive information (maximum, mean, median, minimum,
- * mode, range and standard deviation) from a set of numbers.
+ * Identifies the largest number in the array by looping through every element of the array and comparing starting att index 0.
  *
  * @param {number[]} numbers 
- * @throws {TypeError} The argument must be an array.
- * @throws {Error} The argument can not be an empty array.
- * @throws {TypeError} The argument must be an array containing just numbers.
- * @returns {{maximum: number}}
+ * @returns {{maximum: largest}}
  */
 function maximum (numbers){
     var largest = numbers[0]
-   
-
 
     for (var i = 0; i < numbers.length; i++) {
-        if (largest < numbers[i] ) {
-            largest = numbers[i]
+        if (largest < numbers[i] ) { 
+            largest = numbers[i]    
         }
     }
-    
-   return largest
-   
-
+    return largest   
 }
 
 /**

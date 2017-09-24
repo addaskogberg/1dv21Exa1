@@ -11,7 +11,7 @@ const statistics = require('./src/statistics')
 
 let descriptiveInformation
 
-descriptiveInformation = statistics.descriptiveStatistics([]) //4, 8, 2, 4, 5
+descriptiveInformation = statistics.descriptiveStatistics([4, 8, 2, 4, 5]) //4, 8, 2, 4, 5
 console.log(descriptiveInformation)
 
 descriptiveInformation = statistics.descriptiveStatistics([4, 2, 6, 1, 3, 7, 5, 3, 7])
