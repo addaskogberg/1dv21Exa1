@@ -21,11 +21,11 @@ function descriptiveStatistics (numbers) {
     // these exceptions will apply to all methods in the file apps.js as the arrays are called from statistics.js
     // exceptions thrown if there is no array
     if(!Array.isArray(numbers)){
-        throw new TypeError ("numbers doesn't refer to an array")
+        throw new TypeError ('numbers does not refer to an array')
     }
     // exception thrown if array is empty
     if(numbers.length === 0){   
-        throw new Error ("array is empty")
+        throw new Error ('array is empty')
     }
     // exception thrown if is not a number
     let isNumber = true
@@ -36,17 +36,17 @@ function descriptiveStatistics (numbers) {
         }
     }
     if(!isNumber){
-        throw new TypeError ("array element is Not A Number") 
+        throw new TypeError ('array element is Not A Number') 
     }
     // the exports collected in an array
     let result=[]
-    result[0] = "maximum: " + maximum(numbers)
-    result[1] = "mean: : " + mean(numbers)
-    result[2] = "median: " + median(numbers)
-    result[3] = "minimum: " + minimum(numbers)
-    result[4] = "mode: " + mode(numbers)
-    result[5] = "range: " + range(numbers)
-    result[6] = "standardDeviation: " + standardDeviation(numbers)
+    result[0] = 'maximum: ' + maximum(numbers)
+    result[1] = 'mean: : ' + mean(numbers)
+    result[2] = 'median: ' + median(numbers)
+    result[3] = 'minimum: ' + minimum(numbers)
+    result[4] = 'mode: ' + mode(numbers)
+    result[5] = 'range: ' + range(numbers)
+    result[6] = 'standardDeviation: ' + standardDeviation(numbers)
     return result
 }
 
