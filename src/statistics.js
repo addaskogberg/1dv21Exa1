@@ -64,7 +64,7 @@ function maximum (numbers){
     exceptionsThrown(numbers)
     let largest = numbers[0]
 
-    for (var i = 0; i < numbers.length; i++) { //loops through the array
+    for (let i = 0; i < numbers.length; i++) { //loops through the array
         if (largest < numbers[i] ) { //compares the number in the index with largest 
             largest = numbers[i]     //if largest is smaller then numbers[i], numbers[i] equals largest
         }
@@ -80,7 +80,7 @@ function maximum (numbers){
 function mean (numbers){
     exceptionsThrown(numbers)
     let sum = 0
-    for(var i = 0; i < numbers.length; i++) {// loops through the array
+    for(let i = 0; i < numbers.length; i++) {// loops through the array
         sum += numbers[i] // adds up all the numbers in the array
     }
     let average = sum / numbers.length // divides the sum of the array with the number of indexes
