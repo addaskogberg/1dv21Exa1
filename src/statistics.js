@@ -79,11 +79,11 @@ function maximum (numbers){
  */
 function mean (numbers){
     exceptionsThrown(numbers)
-    let sum = 0;
+    let sum = 0
     for(var i = 0; i < numbers.length; i++) {// loops through the array
-        sum += numbers[i]; // adds up all the numbers in the array
+        sum += numbers[i] // adds up all the numbers in the array
     }
-    let average = sum / numbers.length; // divides the sum of the array with the number of indexes
+    let average = sum / numbers.length // divides the sum of the array with the number of indexes
     return average
 }
 
@@ -95,14 +95,14 @@ function mean (numbers){
 function median (numbers){
     exceptionsThrown(numbers)
     let median = 0,
-    numbersLength = numbers.length; //finds the length of the array
-    numbers.sort();                 //sorting the number
+    numbersLength = numbers.length //finds the length of the array
+    numbers.sort()                 //sorting the number
     if (numbersLength % 2 === 0) {  //is the number even
-        median = (numbers[numbersLength / 2 - 1] + numbers[numbersLength / 2]) / 2; //finding the middle and if the number of arrays is even add the 2 middle numbers and divide by 2. -1 for array positioning 
+        median = (numbers[numbersLength / 2 - 1] + numbers[numbersLength / 2]) / 2 //finding the middle and if the number of arrays is even add the 2 middle numbers and divide by 2. -1 for array positioning 
     } else { 
-        median = numbers[(numbersLength - 1) / 2]; // finding the element in the middle by dividing the array. -1 for posisioning in the array
+        median = numbers[(numbersLength - 1) / 2] // finding the element in the middle by dividing the array. -1 for posisioning in the array
     }
-    return median;
+    return median
 }
     
 /**
@@ -113,7 +113,7 @@ function median (numbers){
 function minimum (numbers){
     exceptionsThrown(numbers)
     let smallest = numbers[0]
-    for (var i = 0; i < numbers.length; i++) {
+    for (let i = 0; i < numbers.length; i++) {
         if (smallest > numbers[i] ) {  //compares the number in the index with smallest
             smallest = numbers[i]      //smallest equals number
         }
@@ -133,8 +133,8 @@ function mode(numbers) {
     let number
     let maxCount = 0
     
-    for (var i = 0; i < numbers.length; i ++) {
-        let number = numbers[i];
+    for (let i = 0; i < numbers.length; i ++) {
+        let number = numbers[i]
         if (isNaN(count[number])){ // initiaties the count 1 at index 0
             count[number] = 1
         }
@@ -172,7 +172,7 @@ function standardDeviation (numbers){
 
     let average = mean(numbers)
     let numerator = 0
-    for(var i = 0; i < numbers.length; i++) { //loops through the array
+    for(let i = 0; i < numbers.length; i++) { //loops through the array
         numerator += (numbers[i] - average) * (numbers[i] - average) // the sum minus the average squared in the array
     }
     let NumDivDenom = numerator / (numbers.length-1) // divides the numerator with the numbera of elements minus 1
