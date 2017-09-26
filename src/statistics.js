@@ -22,12 +22,12 @@ function descriptiveStatistics (numbers) {
     // the exports collected in an array
     let result=[]
     result[0] = 'maximum: ' + maximum(numbers)
-   // result[1] = 'mean: : ' + mean(numbers)
-   // result[2] = 'median: ' + median(numbers)
-    //result[3] = 'minimum: ' + minimum(numbers)
-    //result[4] = 'mode: ' + mode(numbers)
-    //result[5] = 'range: ' + range(numbers)
-    //result[6] = 'standardDeviation: ' + standardDeviation(numbers)
+    result[1] = 'mean: : ' + mean(numbers)
+    result[2] = 'median: ' + median(numbers)
+    result[3] = 'minimum: ' + minimum(numbers)
+    result[4] = 'mode: ' + mode(numbers)
+    result[5] = 'range: ' + range(numbers)
+    result[6] = 'standardDeviation: ' + standardDeviation(numbers)
     return result
 }
 
