@@ -18,6 +18,20 @@
  * @returns {{maximum: number, mean: number, median: number, minimum: number, mode: number[], range: number, standardDeviation: number}}
  */
 function descriptiveStatistics (numbers) {
+
+    // the exports collected in an array
+    let result=[]
+    result[0] = 'maximum: ' + maximum(numbers)
+   // result[1] = 'mean: : ' + mean(numbers)
+   // result[2] = 'median: ' + median(numbers)
+    //result[3] = 'minimum: ' + minimum(numbers)
+    //result[4] = 'mode: ' + mode(numbers)
+    //result[5] = 'range: ' + range(numbers)
+    //result[6] = 'standardDeviation: ' + standardDeviation(numbers)
+    return result
+}
+
+function exceptionsThrown (numbers){
     // these exceptions will apply to all methods in the file apps.js as the arrays are called from statistics.js
     // exceptions thrown if there is no array
     if(!Array.isArray(numbers)){
@@ -38,16 +52,6 @@ function descriptiveStatistics (numbers) {
     if(!isNumber){
         throw new TypeError ('array element is Not A Number') 
     }
-    // the exports collected in an array
-    let result=[]
-    result[0] = 'maximum: ' + maximum(numbers)
-    result[1] = 'mean: : ' + mean(numbers)
-    result[2] = 'median: ' + median(numbers)
-    result[3] = 'minimum: ' + minimum(numbers)
-    result[4] = 'mode: ' + mode(numbers)
-    result[5] = 'range: ' + range(numbers)
-    result[6] = 'standardDeviation: ' + standardDeviation(numbers)
-    return result
 }
 
 /**
@@ -57,7 +61,7 @@ function descriptiveStatistics (numbers) {
  * @returns {{maximum: number}} // returns type number
  */
 function maximum (numbers){
-
+    exceptionsThrown(numbers)
     let largest = numbers[0]
 
     for (var i = 0; i < numbers.length; i++) { //loops through the array
@@ -74,6 +78,7 @@ function maximum (numbers){
  * @returns {{mean: number}} // returns type number
  */
 function mean (numbers){
+    exceptionsThrown(numbers)
     let sum = 0;
     for(var i = 0; i < numbers.length; i++) {// loops through the array
         sum += numbers[i]; // adds up all the numbers in the array
@@ -88,6 +93,7 @@ function mean (numbers){
  * @returns {{median: number}} // returns type number
  */
 function median (numbers){
+    exceptionsThrown(numbers)
     let median = 0,
     numbersLength = numbers.length; //finds the length of the array
     numbers.sort();                 //sorting the number
@@ -105,6 +111,7 @@ function median (numbers){
  * @returns {{minimum: number}} // returns type number
  */
 function minimum (numbers){
+    exceptionsThrown(numbers)
     let smallest = numbers[0]
     for (var i = 0; i < numbers.length; i++) {
         if (smallest > numbers[i] ) {  //compares the number in the index with smallest
@@ -120,6 +127,7 @@ function minimum (numbers){
  * @returns {{mode: number}} // returns type number 
  */
 function mode(numbers) {
+    exceptionsThrown(numbers)
     let mostFrequentNr 
     let count = []
     let number
@@ -147,6 +155,7 @@ function mode(numbers) {
  * @returns {{range: number}} // returns type number 
  */
 function range (numbers){
+    exceptionsThrown(numbers)
     let min = minimum(numbers) // uses the function minimum to get the smallest number
     let max = maximum(numbers) // uses the function maximum to get the largest number
     
@@ -159,6 +168,7 @@ function range (numbers){
  * @returns {{standardDeviation: number}} // returns type number 
  */
 function standardDeviation (numbers){
+    exceptionsThrown(numbers)
 
     let average = mean(numbers)
     let numerator = 0
