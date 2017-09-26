@@ -57,6 +57,7 @@ function descriptiveStatistics (numbers) {
  * @returns {{maximum: number}} // returns type number
  */
 function maximum (numbers){
+
     let largest = numbers[0]
 
     for (var i = 0; i < numbers.length; i++) { //loops through the array
