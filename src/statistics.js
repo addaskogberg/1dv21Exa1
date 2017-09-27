@@ -18,6 +18,24 @@
  * @returns {{maximum: number, mean: number, median: number, minimum: number, mode: number[], range: number, standardDeviation: number}}
  */
 function descriptiveStatistics (numbers) {
+  if (!Array.isArray(numbers)) {
+    throw new TypeError('The passed argument is not an array.')
+  }
+    // exception thrown if array is empty
+  if (numbers.length === 0) {
+    throw new Error('The passed array contains no elements.')
+  }
+    // exception thrown if is not a number
+  let isNumber = true
+  for (let i = 0; i < numbers.length; i++) {
+    if (isNaN(numbers[i])) {
+      isNumber = false
+      break
+    }
+  }
+  if (!isNumber) {
+    throw new TypeError('The passed array contains not just numbers.')
+  }
     // the exports collected in an array
   let result = []
   result[0] = 'maximum: ' + maximum(numbers)
@@ -30,15 +48,19 @@ function descriptiveStatistics (numbers) {
   return result
 }
 
-function exceptionsThrown (numbers) {
-    // these exceptions will apply to all methods in the file apps.js as the arrays are called from statistics.js
-    // exceptions thrown if there is no array
+/**
+ * Identifies the largest number in the array by looping through every element of the array and comparing, starting att index 0.
+ *
+ * @param {number[]} numbers // input an array of numbers
+ * @returns {{maximum: number}} // returns type number
+ */
+function maximum (numbers) {
   if (!Array.isArray(numbers)) {
-    throw new TypeError('numbers does not refer to an array')
+    throw new TypeError('The passed argument is not an array.')
   }
     // exception thrown if array is empty
   if (numbers.length === 0) {
-    throw new Error('array is empty')
+    throw new Error('The passed array contains no elements.')
   }
     // exception thrown if is not a number
   let isNumber = true
@@ -49,18 +71,8 @@ function exceptionsThrown (numbers) {
     }
   }
   if (!isNumber) {
-    throw new TypeError('array element is Not A Number')
+    throw new TypeError('The passed array contains not just numbers.')
   }
-}
-
-/**
- * Identifies the largest number in the array by looping through every element of the array and comparing, starting att index 0.
- *
- * @param {number[]} numbers // input an array of numbers
- * @returns {{maximum: number}} // returns type number
- */
-function maximum (numbers) {
-  exceptionsThrown(numbers)
   let largest = numbers[0]
 
   for (let i = 0; i < numbers.length; i++) { // loops through the array
@@ -77,7 +89,24 @@ function maximum (numbers) {
  * @returns {{mean: number}} // returns type number
  */
 function mean (numbers) {
-  exceptionsThrown(numbers)
+  if (!Array.isArray(numbers)) {
+    throw new TypeError('The passed argument is not an array.')
+  }
+    // exception thrown if array is empty
+  if (numbers.length === 0) {
+    throw new Error('The passed array contains no elements.')
+  }
+    // exception thrown if is not a number
+  let isNumber = true
+  for (let i = 0; i < numbers.length; i++) {
+    if (isNaN(numbers[i])) {
+      isNumber = false
+      break
+    }
+  }
+  if (!isNumber) {
+    throw new TypeError('The passed array contains not just numbers.')
+  }
   let sum = 0
   for (let i = 0; i < numbers.length; i++) { // loops through the array
     sum += numbers[i] // adds up all the numbers in the array
@@ -92,10 +121,27 @@ function mean (numbers) {
  * @returns {{median: number}} // returns type number
  */
 function median (numbers) {
-  exceptionsThrown(numbers)
+  if (!Array.isArray(numbers)) {
+    throw new TypeError('The passed argument is not an array.')
+  }
+    // exception thrown if array is empty
+  if (numbers.length === 0) {
+    throw new Error('The passed array contains no elements.')
+  }
+    // exception thrown if is not a number
+  let isNumber = true
+  for (let i = 0; i < numbers.length; i++) {
+    if (isNaN(numbers[i])) {
+      isNumber = false
+      break
+    }
+  }
+  if (!isNumber) {
+    throw new TypeError('The passed array contains not just numbers.')
+  }
   let median = 0
   let numbersLength = numbers.length
-  numbersLength = numbers.length // finds the length of the array
+
   numbers.sort()                 // sorting the number
   if (numbersLength % 2 === 0) {  // is the number even
     median = (numbers[numbersLength / 2 - 1] + numbers[numbersLength / 2]) / 2 // finding the middle and if the number of arrays is even add the 2 middle numbers and divide by 2. -1 for array positioning
@@ -111,7 +157,24 @@ function median (numbers) {
  * @returns {{minimum: number}} // returns type number
  */
 function minimum (numbers) {
-  exceptionsThrown(numbers)
+  if (!Array.isArray(numbers)) {
+    throw new TypeError('The passed argument is not an array.')
+  }
+    // exception thrown if array is empty
+  if (numbers.length === 0) {
+    throw new Error('The passed array contains no elements.')
+  }
+    // exception thrown if is not a number
+  let isNumber = true
+  for (let i = 0; i < numbers.length; i++) {
+    if (isNaN(numbers[i])) {
+      isNumber = false
+      break
+    }
+  }
+  if (!isNumber) {
+    throw new TypeError('The passed array contains not just numbers.')
+  }
   let smallest = numbers[0]
   for (let i = 0; i < numbers.length; i++) {
     if (smallest > numbers[i]) {  // compares the number in the index with smallest
@@ -127,7 +190,24 @@ function minimum (numbers) {
  * @returns {{mode: number}} // returns type number
  */
 function mode (numbers) {
-  exceptionsThrown(numbers)
+  if (!Array.isArray(numbers)) {
+    throw new TypeError('The passed argument is not an array.')
+  }
+    // exception thrown if array is empty
+  if (numbers.length === 0) {
+    throw new Error('The passed array contains no elements.')
+  }
+    // exception thrown if is not a number
+  let isNumber = true
+  for (let i = 0; i < numbers.length; i++) {
+    if (isNaN(numbers[i])) {
+      isNumber = false
+      break
+    }
+  }
+  if (!isNumber) {
+    throw new TypeError('The passed array contains not just numbers.')
+  }
   let mostFrequentNr
   let count = []
   let maxCount = 0
@@ -153,7 +233,24 @@ function mode (numbers) {
  * @returns {{range: number}} // returns type number
  */
 function range (numbers) {
-  exceptionsThrown(numbers)
+  if (!Array.isArray(numbers)) {
+    throw new TypeError('The passed argument is not an array.')
+  }
+    // exception thrown if array is empty
+  if (numbers.length === 0) {
+    throw new Error('The passed array contains no elements.')
+  }
+    // exception thrown if is not a number
+  let isNumber = true
+  for (let i = 0; i < numbers.length; i++) {
+    if (isNaN(numbers[i])) {
+      isNumber = false
+      break
+    }
+  }
+  if (!isNumber) {
+    throw new TypeError('The passed array contains not just numbers.')
+  }
   let min = minimum(numbers) // uses the function minimum to get the smallest number
   let max = maximum(numbers) // uses the function maximum to get the largest number
 
@@ -166,7 +263,24 @@ function range (numbers) {
  * @returns {{standardDeviation: number}} // returns type number
  */
 function standardDeviation (numbers) {
-  exceptionsThrown(numbers)
+  if (!Array.isArray(numbers)) {
+    throw new TypeError('The passed argument is not an array.')
+  }
+    // exception thrown if array is empty
+  if (numbers.length === 0) {
+    throw new Error('The passed array contains no elements.')
+  }
+    // exception thrown if is not a number
+  let isNumber = true
+  for (let i = 0; i < numbers.length; i++) {
+    if (isNaN(numbers[i])) {
+      isNumber = false
+      break
+    }
+  }
+  if (!isNumber) {
+    throw new TypeError('The passed array contains not just numbers.')
+  }
 
   let average = mean(numbers)
   let numerator = 0
