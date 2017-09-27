@@ -18,40 +18,39 @@
  * @returns {{maximum: number, mean: number, median: number, minimum: number, mode: number[], range: number, standardDeviation: number}}
  */
 function descriptiveStatistics (numbers) {
-
     // the exports collected in an array
-    let result=[]
-    result[0] = 'maximum: ' + maximum(numbers)
-    result[1] = 'mean: : ' + mean(numbers)
-    result[2] = 'median: ' + median(numbers)
-    result[3] = 'minimum: ' + minimum(numbers)
-    result[4] = 'mode: ' + mode(numbers)
-    result[5] = 'range: ' + range(numbers)
-    result[6] = 'standardDeviation: ' + standardDeviation(numbers)
-    return result
+  let result = []
+  result[0] = 'maximum: ' + maximum(numbers)
+  result[1] = 'mean: : ' + mean(numbers)
+  result[2] = 'median: ' + median(numbers)
+  result[3] = 'minimum: ' + minimum(numbers)
+  result[4] = 'mode: ' + mode(numbers)
+  result[5] = 'range: ' + range(numbers)
+  result[6] = 'standardDeviation: ' + standardDeviation(numbers)
+  return result
 }
 
-function exceptionsThrown (numbers){
+function exceptionsThrown (numbers) {
     // these exceptions will apply to all methods in the file apps.js as the arrays are called from statistics.js
     // exceptions thrown if there is no array
-    if(!Array.isArray(numbers)){
-        throw new TypeError ('numbers does not refer to an array')
-    }
+  if (!Array.isArray(numbers)) {
+    throw new TypeError('numbers does not refer to an array')
+  }
     // exception thrown if array is empty
-    if(numbers.length === 0){   
-        throw new Error ('array is empty')
-    }
+  if (numbers.length === 0) {
+    throw new Error('array is empty')
+  }
     // exception thrown if is not a number
-    let isNumber = true
-    for(let i = 0; i < numbers.length; i++){
-        if(isNaN(numbers[i])){
-            isNumber = false
-            break
-        }
+  let isNumber = true
+  for (let i = 0; i < numbers.length; i++) {
+    if (isNaN(numbers[i])) {
+      isNumber = false
+      break
     }
-    if(!isNumber){
-        throw new TypeError ('array element is Not A Number') 
-    }
+  }
+  if (!isNumber) {
+    throw new TypeError('array element is Not A Number')
+  }
 }
 
 /**
@@ -60,16 +59,16 @@ function exceptionsThrown (numbers){
  * @param {number[]} numbers // input an array of numbers
  * @returns {{maximum: number}} // returns type number
  */
-function maximum (numbers){
-    exceptionsThrown(numbers)
-    let largest = numbers[0]
+function maximum (numbers) {
+  exceptionsThrown(numbers)
+  let largest = numbers[0]
 
-    for (let i = 0; i < numbers.length; i++) { //loops through the array
-        if (largest < numbers[i] ) { //compares the number in the index with largest 
-            largest = numbers[i]     //if largest is smaller then numbers[i], numbers[i] equals largest
-        }
+  for (let i = 0; i < numbers.length; i++) { // loops through the array
+    if (largest < numbers[i]) { // compares the number in the index with largest
+      largest = numbers[i]     // if largest is smaller then numbers[i], numbers[i] equals largest
     }
-    return largest   
+  }
+  return largest
 }
 
 /**
@@ -77,14 +76,14 @@ function maximum (numbers){
  * @param {number[]} numbers // input an array of numbers
  * @returns {{mean: number}} // returns type number
  */
-function mean (numbers){
-    exceptionsThrown(numbers)
-    let sum = 0
-    for(let i = 0; i < numbers.length; i++) {// loops through the array
-        sum += numbers[i] // adds up all the numbers in the array
-    }
-    let average = sum / numbers.length // divides the sum of the array with the number of indexes
-    return average
+function mean (numbers) {
+  exceptionsThrown(numbers)
+  let sum = 0
+  for (let i = 0; i < numbers.length; i++) { // loops through the array
+    sum += numbers[i] // adds up all the numbers in the array
+  }
+  let average = sum / numbers.length // divides the sum of the array with the number of indexes
+  return average
 }
 
 /**
@@ -92,93 +91,91 @@ function mean (numbers){
  * @param {number[]} numbers // input an array of numbers
  * @returns {{median: number}} // returns type number
  */
-function median (numbers){
-    exceptionsThrown(numbers)
-    let median = 0,
-    numbersLength = numbers.length //finds the length of the array
-    numbers.sort()                 //sorting the number
-    if (numbersLength % 2 === 0) {  //is the number even
-        median = (numbers[numbersLength / 2 - 1] + numbers[numbersLength / 2]) / 2 //finding the middle and if the number of arrays is even add the 2 middle numbers and divide by 2. -1 for array positioning 
-    } else { 
-        median = numbers[(numbersLength - 1) / 2] // finding the element in the middle by dividing the array. -1 for posisioning in the array
-    }
-    return median
+function median (numbers) {
+  exceptionsThrown(numbers)
+  let median = 0,
+    numbersLength = numbers.length // finds the length of the array
+  numbers.sort()                 // sorting the number
+  if (numbersLength % 2 === 0) {  // is the number even
+    median = (numbers[numbersLength / 2 - 1] + numbers[numbersLength / 2]) / 2 // finding the middle and if the number of arrays is even add the 2 middle numbers and divide by 2. -1 for array positioning
+  } else {
+    median = numbers[(numbersLength - 1) / 2] // finding the element in the middle by dividing the array. -1 for posisioning in the array
+  }
+  return median
 }
-    
+
 /**
  * finding the smallest number in an array
  * @param {number[]} numbers // input an array of numbers
  * @returns {{minimum: number}} // returns type number
  */
-function minimum (numbers){
-    exceptionsThrown(numbers)
-    let smallest = numbers[0]
-    for (let i = 0; i < numbers.length; i++) {
-        if (smallest > numbers[i] ) {  //compares the number in the index with smallest
-            smallest = numbers[i]      //smallest equals number
-        }
+function minimum (numbers) {
+  exceptionsThrown(numbers)
+  let smallest = numbers[0]
+  for (let i = 0; i < numbers.length; i++) {
+    if (smallest > numbers[i]) {  // compares the number in the index with smallest
+      smallest = numbers[i]      // smallest equals number
     }
-    return smallest
+  }
+  return smallest
 }
 
 /**
  * find the number that is repeated more often than any other
  * @param {number[]} numbers // input an array of numbers
- * @returns {{mode: number}} // returns type number 
+ * @returns {{mode: number}} // returns type number
  */
-function mode(numbers) {
-    exceptionsThrown(numbers)
-    let mostFrequentNr 
-    let count = []
-    let number
-    let maxCount = 0
-    
-    for (let i = 0; i < numbers.length; i ++) {
-        let number = numbers[i]
-        if (isNaN(count[number])){ // initiaties the count 1 at index 0
-            count[number] = 1
-        }
-        else{
-            count[number]++ // counting after initiation
-        }
-        if (count[number] > maxCount) { //
-            maxCount = count[number]
-            mostFrequentNr = number
-        }
+function mode (numbers) {
+  exceptionsThrown(numbers)
+  let mostFrequentNr
+  let count = []
+  let maxCount = 0
+
+  for (let i = 0; i < numbers.length; i++) {
+    let number = numbers[i]
+    if (isNaN(count[number])) { // initiaties the count 1 at index 0
+      count[number] = 1
+    } else {
+      count[number]++ // counting after initiation
     }
-    return mostFrequentNr 
+    if (count[number] > maxCount) { //
+      maxCount = count[number]
+      mostFrequentNr = number
+    }
+  }
+  return mostFrequentNr
 }
 
 /**
  * the difference between the largest and smallest number in the array
  * @param {number[]} numbers // input an array of numbers
- * @returns {{range: number}} // returns type number 
+ * @returns {{range: number}} // returns type number
  */
-function range (numbers){
-    exceptionsThrown(numbers)
-    let min = minimum(numbers) // uses the function minimum to get the smallest number
-    let max = maximum(numbers) // uses the function maximum to get the largest number
-    
-    return  max - min  // calculates the range
+function range (numbers) {
+  exceptionsThrown(numbers)
+  let min = minimum(numbers) // uses the function minimum to get the smallest number
+  let max = maximum(numbers) // uses the function maximum to get the largest number
+
+  return max - min  // calculates the range
 }
 
 /**
  * gives the spread of the numbers in the array from the average number
  * @param {number[]} numbers // input an array of numbers
- * @returns {{standardDeviation: number}} // returns type number 
+ * @returns {{standardDeviation: number}} // returns type number
  */
-function standardDeviation (numbers){
-    exceptionsThrown(numbers)
+function standardDeviation (numbers) {
+  exceptionsThrown(numbers)
 
-    let average = mean(numbers)
-    let numerator = 0
-    for(let i = 0; i < numbers.length; i++) { //loops through the array
-        numerator += (numbers[i] - average) * (numbers[i] - average) // the sum minus the average squared in the array
-    }
-    let NumDivDenom = numerator / (numbers.length-1) // divides the numerator with the numbera of elements minus 1
+  let average = mean(numbers)
+  let numerator = 0
+  for (let i = 0; i < numbers.length; i++) { // loops through the array
+    numerator += (numbers[i] - average) * (numbers[i] - average) // the sum minus the average squared in the array
+  }
+  let NumDivDenom = numerator / (numbers.length - 1) // divides the numerator with the numbera of elements minus 1
 
-    return  Math.sqrt(NumDivDenom) // square root
-}    
+  return Math.sqrt(NumDivDenom) // square root
+}
 // Exports
 
 exports.descriptiveStatistics = descriptiveStatistics
