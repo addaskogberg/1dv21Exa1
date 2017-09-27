@@ -1,6 +1,6 @@
 /**
  * Module for obtaining descriptive information about a set of data.
- *
+ * @module src/statistics
  * @author Adda Skogberg
  * @version 1.1.0
  */
@@ -93,8 +93,9 @@ function mean (numbers) {
  */
 function median (numbers) {
   exceptionsThrown(numbers)
-  let median = 0,
-    numbersLength = numbers.length // finds the length of the array
+  let median = 0
+  let numbersLength = numbers.length
+  numbersLength = numbers.length // finds the length of the array
   numbers.sort()                 // sorting the number
   if (numbersLength % 2 === 0) {  // is the number even
     median = (numbers[numbersLength / 2 - 1] + numbers[numbersLength / 2]) / 2 // finding the middle and if the number of arrays is even add the 2 middle numbers and divide by 2. -1 for array positioning
