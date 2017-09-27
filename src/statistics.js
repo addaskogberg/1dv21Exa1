@@ -21,14 +21,13 @@ function descriptiveStatistics (numbers) {
   if (!Array.isArray(numbers)) {
     throw new TypeError('The passed argument is not an array.')
   }
-    // exception thrown if array is empty
+    // exception thrown if array is empty ||typeof numbers[i] === 'string'
   if (numbers.length === 0) {
     throw new Error('The passed array contains no elements.')
   }
-    // exception thrown if is not a number
   let isNumber = true
   for (let i = 0; i < numbers.length; i++) {
-    if (isNaN(numbers[i])) {
+    if (isNaN(numbers[i]) || typeof numbers[i] === 'string') {
       isNumber = false
       break
     }
@@ -36,6 +35,8 @@ function descriptiveStatistics (numbers) {
   if (!isNumber) {
     throw new TypeError('The passed array contains not just numbers.')
   }
+    // exception thrown if is not a number
+
     // the exports collected in an array
   let result = []
   result[0] = 'maximum: ' + maximum(numbers)
@@ -65,7 +66,7 @@ function maximum (numbers) {
     // exception thrown if is not a number
   let isNumber = true
   for (let i = 0; i < numbers.length; i++) {
-    if (isNaN(numbers[i])) {
+    if (isNaN(numbers[i]) || typeof (numbers[i]) === 'string') {
       isNumber = false
       break
     }
@@ -99,7 +100,7 @@ function mean (numbers) {
     // exception thrown if is not a number
   let isNumber = true
   for (let i = 0; i < numbers.length; i++) {
-    if (isNaN(numbers[i])) {
+    if (isNaN(numbers[i]) || typeof (numbers[i]) === 'string') {
       isNumber = false
       break
     }
@@ -131,7 +132,7 @@ function median (numbers) {
     // exception thrown if is not a number
   let isNumber = true
   for (let i = 0; i < numbers.length; i++) {
-    if (isNaN(numbers[i])) {
+    if (isNaN(numbers[i]) || typeof (numbers[i]) === 'string') {
       isNumber = false
       break
     }
@@ -167,7 +168,7 @@ function minimum (numbers) {
     // exception thrown if is not a number
   let isNumber = true
   for (let i = 0; i < numbers.length; i++) {
-    if (isNaN(numbers[i])) {
+    if (isNaN(numbers[i]) || typeof (numbers[i]) === 'string') {
       isNumber = false
       break
     }
@@ -200,7 +201,7 @@ function mode (numbers) {
     // exception thrown if is not a number
   let isNumber = true
   for (let i = 0; i < numbers.length; i++) {
-    if (isNaN(numbers[i])) {
+    if (isNaN(numbers[i]) || typeof (numbers[i]) === 'string') {
       isNumber = false
       break
     }
@@ -243,7 +244,7 @@ function range (numbers) {
     // exception thrown if is not a number
   let isNumber = true
   for (let i = 0; i < numbers.length; i++) {
-    if (isNaN(numbers[i])) {
+    if (isNaN(numbers[i]) || typeof (numbers[i]) === 'string') {
       isNumber = false
       break
     }
@@ -273,7 +274,7 @@ function standardDeviation (numbers) {
     // exception thrown if is not a number
   let isNumber = true
   for (let i = 0; i < numbers.length; i++) {
-    if (isNaN(numbers[i])) {
+    if (isNaN(numbers[i]) || typeof (numbers[i]) === 'string') {
       isNumber = false
       break
     }
