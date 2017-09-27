@@ -35,18 +35,8 @@ function descriptiveStatistics (numbers) {
   if (!isNumber) {
     throw new TypeError('The passed array contains not just numbers.')
   }
-    // exception thrown if is not a number
-
     // the exports collected in an array
-  let result = []
-  result[0] = 'maximum: ' + maximum(numbers)
-  result[1] = 'mean: : ' + mean(numbers)
-  result[2] = 'median: ' + median(numbers)
-  result[3] = 'minimum: ' + minimum(numbers)
-  result[4] = 'mode: ' + mode(numbers)
-  result[5] = 'range: ' + range(numbers)
-  result[6] = 'standardDeviation: ' + standardDeviation(numbers)
-  return result
+  return {maximum: maximum(numbers), mean: mean(numbers), median: median(numbers), minimum: minimum(numbers), mode: mode(numbers), range: range(numbers), standardDeviation: standardDeviation(numbers)}
 }
 
 /**
@@ -59,14 +49,13 @@ function maximum (numbers) {
   if (!Array.isArray(numbers)) {
     throw new TypeError('The passed argument is not an array.')
   }
-    // exception thrown if array is empty
+    // exception thrown if array is empty ||typeof numbers[i] === 'string'
   if (numbers.length === 0) {
     throw new Error('The passed array contains no elements.')
   }
-    // exception thrown if is not a number
   let isNumber = true
   for (let i = 0; i < numbers.length; i++) {
-    if (isNaN(numbers[i]) || typeof (numbers[i]) === 'string') {
+    if (isNaN(numbers[i]) || typeof numbers[i] === 'string') {
       isNumber = false
       break
     }
@@ -93,14 +82,13 @@ function mean (numbers) {
   if (!Array.isArray(numbers)) {
     throw new TypeError('The passed argument is not an array.')
   }
-    // exception thrown if array is empty
+    // exception thrown if array is empty ||typeof numbers[i] === 'string'
   if (numbers.length === 0) {
     throw new Error('The passed array contains no elements.')
   }
-    // exception thrown if is not a number
   let isNumber = true
   for (let i = 0; i < numbers.length; i++) {
-    if (isNaN(numbers[i]) || typeof (numbers[i]) === 'string') {
+    if (isNaN(numbers[i]) || typeof numbers[i] === 'string') {
       isNumber = false
       break
     }
@@ -125,14 +113,13 @@ function median (numbers) {
   if (!Array.isArray(numbers)) {
     throw new TypeError('The passed argument is not an array.')
   }
-    // exception thrown if array is empty
+    // exception thrown if array is empty ||typeof numbers[i] === 'string'
   if (numbers.length === 0) {
     throw new Error('The passed array contains no elements.')
   }
-    // exception thrown if is not a number
   let isNumber = true
   for (let i = 0; i < numbers.length; i++) {
-    if (isNaN(numbers[i]) || typeof (numbers[i]) === 'string') {
+    if (isNaN(numbers[i]) || typeof numbers[i] === 'string') {
       isNumber = false
       break
     }
@@ -140,16 +127,18 @@ function median (numbers) {
   if (!isNumber) {
     throw new TypeError('The passed array contains not just numbers.')
   }
-  let median = 0
-  let numbersLength = numbers.length
 
-  numbers.sort()                 // sorting the number
-  if (numbersLength % 2 === 0) {  // is the number even
-    median = (numbers[numbersLength / 2 - 1] + numbers[numbersLength / 2]) / 2 // finding the middle and if the number of arrays is even add the 2 middle numbers and divide by 2. -1 for array positioning
-  } else {
-    median = numbers[(numbersLength - 1) / 2] // finding the element in the middle by dividing the array. -1 for posisioning in the array
+  let sortedNumbers = []
+  for (let i = 0; i < numbers.length; i++) {
+    sortedNumbers[i] = numbers[i]
   }
-  return median
+  if (sortedNumbers.length % 2 === 0) {  // is the number even
+    sortedNumbers.sort()
+    return (sortedNumbers[(sortedNumbers.length / 2) - 1] + sortedNumbers[sortedNumbers.length / 2]) / 2 // finding the middle and if the number of arrays is even add the 2 middle numbers and divide by 2. -1 for array positioning
+  } else {
+    sortedNumbers.sort()
+    return sortedNumbers[(sortedNumbers.length - 1) / 2] // finding the element in the middle by dividing the array. -1 for posisioning in the array
+  }
 }
 
 /**
@@ -161,14 +150,13 @@ function minimum (numbers) {
   if (!Array.isArray(numbers)) {
     throw new TypeError('The passed argument is not an array.')
   }
-    // exception thrown if array is empty
+    // exception thrown if array is empty ||typeof numbers[i] === 'string'
   if (numbers.length === 0) {
     throw new Error('The passed array contains no elements.')
   }
-    // exception thrown if is not a number
   let isNumber = true
   for (let i = 0; i < numbers.length; i++) {
-    if (isNaN(numbers[i]) || typeof (numbers[i]) === 'string') {
+    if (isNaN(numbers[i]) || typeof numbers[i] === 'string') {
       isNumber = false
       break
     }
@@ -194,14 +182,13 @@ function mode (numbers) {
   if (!Array.isArray(numbers)) {
     throw new TypeError('The passed argument is not an array.')
   }
-    // exception thrown if array is empty
+    // exception thrown if array is empty ||typeof numbers[i] === 'string'
   if (numbers.length === 0) {
     throw new Error('The passed array contains no elements.')
   }
-    // exception thrown if is not a number
   let isNumber = true
   for (let i = 0; i < numbers.length; i++) {
-    if (isNaN(numbers[i]) || typeof (numbers[i]) === 'string') {
+    if (isNaN(numbers[i]) || typeof numbers[i] === 'string') {
       isNumber = false
       break
     }
@@ -209,23 +196,40 @@ function mode (numbers) {
   if (!isNumber) {
     throw new TypeError('The passed array contains not just numbers.')
   }
-  let mostFrequentNr
-  let count = []
-  let maxCount = 0
+  var keys = []
+  var count = []
 
-  for (let i = 0; i < numbers.length; i++) {
-    let number = numbers[i]
-    if (isNaN(count[number])) { // initiaties the count 1 at index 0
-      count[number] = 1
-    } else {
-      count[number]++ // counting after initiation
+  for (var i = 0; i < numbers.length; i++) {
+    var exist = false
+    var pos = 0
+    for (var j = 0; j < keys.length; j++) {
+      if (keys[j] === numbers[i]) {
+        pos = j
+        exist = true
+        break
+      }
     }
-    if (count[number] > maxCount) { //
-      maxCount = count[number]
-      mostFrequentNr = number
+
+    if (exist) {
+      count[pos] ++
+    } else {
+      var position = keys.length
+      keys[position] = numbers[i]
+      count[position] = 1
     }
   }
-  return mostFrequentNr
+
+  let maxOfInstances = maximum(count)
+
+  let returnArray = []
+
+  for (let j = 0; j < count.length; j++) {
+    if (count[j] === maxOfInstances) {
+      returnArray[returnArray.length] = keys[j]
+      returnArray.sort()
+    }
+  }
+  return returnArray
 }
 
 /**
@@ -237,14 +241,13 @@ function range (numbers) {
   if (!Array.isArray(numbers)) {
     throw new TypeError('The passed argument is not an array.')
   }
-    // exception thrown if array is empty
+    // exception thrown if array is empty ||typeof numbers[i] === 'string'
   if (numbers.length === 0) {
     throw new Error('The passed array contains no elements.')
   }
-    // exception thrown if is not a number
   let isNumber = true
   for (let i = 0; i < numbers.length; i++) {
-    if (isNaN(numbers[i]) || typeof (numbers[i]) === 'string') {
+    if (isNaN(numbers[i]) || typeof numbers[i] === 'string') {
       isNumber = false
       break
     }
@@ -254,8 +257,8 @@ function range (numbers) {
   }
   let min = minimum(numbers) // uses the function minimum to get the smallest number
   let max = maximum(numbers) // uses the function maximum to get the largest number
-
-  return max - min  // calculates the range
+  let rangeRetur = max - min  // calculates the range
+  return rangeRetur
 }
 
 /**
@@ -267,14 +270,13 @@ function standardDeviation (numbers) {
   if (!Array.isArray(numbers)) {
     throw new TypeError('The passed argument is not an array.')
   }
-    // exception thrown if array is empty
+    // exception thrown if array is empty ||typeof numbers[i] === 'string'
   if (numbers.length === 0) {
     throw new Error('The passed array contains no elements.')
   }
-    // exception thrown if is not a number
   let isNumber = true
   for (let i = 0; i < numbers.length; i++) {
-    if (isNaN(numbers[i]) || typeof (numbers[i]) === 'string') {
+    if (isNaN(numbers[i]) || typeof numbers[i] === 'string') {
       isNumber = false
       break
     }
@@ -288,9 +290,9 @@ function standardDeviation (numbers) {
   for (let i = 0; i < numbers.length; i++) { // loops through the array
     numerator += (numbers[i] - average) * (numbers[i] - average) // the sum minus the average squared in the array
   }
-  let NumDivDenom = numerator / (numbers.length - 1) // divides the numerator with the numbera of elements minus 1
-
-  return Math.sqrt(NumDivDenom) // square root
+  let NumDivDenom = numerator / (numbers.length) // divides the numerator with the numbera of elements minus 1
+  let standardD = Math.sqrt(NumDivDenom) // square root
+  return standardD
 }
 // Exports
 
